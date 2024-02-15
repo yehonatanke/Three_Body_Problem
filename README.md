@@ -25,36 +25,24 @@ For the three-body problem, the ODEs that describe the motion of each body can b
 
 For the Sun:
 
-$$\[
-\begin{align*}
-\frac{{dx_1}}{{dt}} &= vx_1 \\
-\frac{{dy_1}}{{dt}} &= vy_1 \\
-\frac{{dvx_1}}{{dt}} &= G \left( \frac{{m_2 (x_2 - x_1)}}{{r_{12}^3}} + \frac{{m_3 (x_3 - x_1)}}{{r_{13}^3}} \right) \\
-\frac{{dvy_1}}{{dt}} &= G \left( \frac{{m_2 (y_2 - y_1)}}{{r_{12}^3}} + \frac{{m_3 (y_3 - y_1)}}{{r_{13}^3}} \right)
-\end{align*}
-\]$$
+1. Rate of change of $x_1$: $\frac{{dx_1}}{{dt}} = vx_1$
+2. Rate of change of $y_1$: $\frac{{dy_1}}{{dt}} = vy_1$
+3. Rate of change of $vx_1$: $\frac{{dvx_1}}{{dt}} = G \left( \frac{{m_2 (x_2 - x_1)}}{{r_{12}^3}} + \frac{{m_3 (x_3 - x_1)}}{{r_{13}^3}} \right)$
+4. Rate of change of $vy_1$: $\frac{{dvy_1}}{{dt}} = G \left( \frac{{m_2 (y_2 - y_1)}}{{r_{12}^3}} + \frac{{m_3 (y_3 - y_1)}}{{r_{13}^3}} \right)$
 
 For the Earth:
 
-$$\[
-\begin{align*}
-\frac{{dx_2}}{{dt}} &= vx_2 \\
-\frac{{dy_2}}{{dt}} &= vy_2 \\
-\frac{{dvx_2}}{{dt}} &= G \left( \frac{{m_1 (x_1 - x_2)}}{{r_{21}^3}} + \frac{{m_3 (x_3 - x_2)}}{{r_{23}^3}} \right) \\
-\frac{{dvy_2}}{{dt}} &= G \left( \frac{{m_1 (y_1 - y_2)}}{{r_{21}^3}} + \frac{{m_3 (y_3 - y_2)}}{{r_{23}^3}} \right)
-\end{align*}
-\]$$
+1. Rate of change of $x_2$: $\frac{{dx_2}}{{dt}} = vx_2$
+2. Rate of change of $y_2$: $\frac{{dy_2}}{{dt}} = vy_2$
+3. Rate of change of $vx_2$: $\frac{{dvx_2}}{{dt}} = G \left( \frac{{m_1 (x_1 - x_2)}}{{r_{21}^3}} + \frac{{m_3 (x_3 - x_2)}}{{r_{23}^3}} \right)$
+4. Rate of change of $vy_2$: $\frac{{dvy_2}}{{dt}} = G \left( \frac{{m_1 (y_1 - y_2)}}{{r_{21}^3}} + \frac{{m_3 (y_3 - y_2)}}{{r_{23}^3}} \right)$
 
 For Jupiter:
 
-$$\[
-\begin{align*}
-\frac{{dx_3}}{{dt}} &= vx_3 \\
-\frac{{dy_3}}{{dt}} &= vy_3 \\
-\frac{{dvx_3}}{{dt}} &= G \left( \frac{{m_1 (x_1 - x_3)}}{{r_{31}^3}} + \frac{{m_2 (x_2 - x_3)}}{{r_{32}^3}} \right) \\
-\frac{{dvy_3}}{{dt}} &= G \left( \frac{{m_1 (y_1 - y_3)}}{{r_{31}^3}} + \frac{{m_2 (y_2 - y_3)}}{{r_{32}^3}} \right)
-\end{align*}
-\]$$
+1. Rate of change of $x_3$: $\frac{{dx_3}}{{dt}} = vx_3$
+2. Rate of change of $y_3$: $\frac{{dy_3}}{{dt}} = vy_3$
+3. Rate of change of $vx_3$: $\frac{{dvx_3}}{{dt}} = G \left( \frac{{m_1 (x_1 - x_3)}}{{r_{31}^3}} + \frac{{m_2 (x_2 - x_3)}}{{r_{32}^3}} \right)$
+4. Rate of change of $vy_3$: $\frac{{dvy_3}}{{dt}} = G \left( \frac{{m_1 (y_1 - y_3)}}{{r_{31}^3}} + \frac{{m_2 (y_2 - y_3)}}{{r_{32}^3}} \right)$
 
 
 where:
