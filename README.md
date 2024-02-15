@@ -10,9 +10,8 @@ In this problem, we consider the gravitational interaction between three massive
 
 The gravitational force between two bodies can be described by Newton's law of universal gravitation:
 
-$$
-F = G \frac{{m_1 m_2}}{{r^2}}
-$$
+$F=G \frac{{m_1 m_2}}{{r^2}}$
+
 
 where:
 - $F$ is the gravitational force between the two bodies,
