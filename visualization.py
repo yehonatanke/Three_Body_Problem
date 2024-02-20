@@ -14,6 +14,15 @@ GG = (MM * G * TT ** 2) / (RR ** 3)  # Gravitational constant in normalized unit
 
 
 def force_es(r):
+    """
+    Calculates the gravitational force exerted on Earth by the Sun.
+    
+    Parameters:
+    r (numpy.ndarray): Position vector of Earth.
+    
+    Returns:
+    numpy.ndarray: Gravitational force vector exerted on Earth.
+    """
     F = np.zeros(2)
     Fmag = GG * Me * Ms / (np.linalg.norm(r) + 1e-20) ** 2
     theta = np.arctan2(np.abs(r[1]), np.abs(r[0]) + 1e-20)
@@ -23,6 +32,15 @@ def force_es(r):
 
 
 def force_js(r):
+    """
+    Calculates the gravitational force exerted on Jupiter by the Sun.
+    
+    Parameters:
+    r (numpy.ndarray): Position vector of Jupiter.
+    
+    Returns:
+    numpy.ndarray: Gravitational force vector exerted on Jupiter.
+    """
     F = np.zeros(2)
     Fmag = GG * Mj * Ms / (np.linalg.norm(r) + 1e-20) ** 2
     theta = np.arctan2(np.abs(r[1]), np.abs(r[0]) + 1e-20)
@@ -32,6 +50,16 @@ def force_js(r):
 
 
 def force_ej(re, rj):
+    """
+    Calculates the gravitational force exerted on Earth by Jupiter.
+    
+    Parameters:
+    re (numpy.ndarray): Position vector of Earth.
+    rj (numpy.ndarray): Position vector of Jupiter.
+    
+    Returns:
+    numpy.ndarray: Gravitational force vector exerted on Earth by Jupiter.
+    """
     r = re - rj
     F = np.zeros(2)
     Fmag = GG * Me * Mj / (np.linalg.norm(r) + 1e-20) ** 2
@@ -42,6 +70,18 @@ def force_ej(re, rj):
 
 
 def force(r, planet, re, rj):
+    """
+    Calculates the net gravitational force acting on a planet.
+    
+    Parameters:
+    r (numpy.ndarray): Position vector of the planet.
+    planet (str): Name of the planet ('earth' or 'jupiter').
+    re (numpy.ndarray): Position vector of Earth.
+    rj (numpy.ndarray): Position vector of Jupiter.
+    
+    Returns:
+    numpy.ndarray: Net gravitational force vector acting on the planet.
+    """
     if planet == 'earth':
         return force_es(r) + force_ej(r, rj)
     if planet == 'jupiter':
@@ -49,10 +89,38 @@ def force(r, planet, re, rj):
 
 
 def dr_dt(t, r, v, planet, re, rj):
+    """
+    Calculates the derivative of the position vector.
+    
+    Parameters:
+    t (float): Time.
+    r (numpy.ndarray): Position vector.
+    v (numpy.ndarray): Velocity vector.
+    planet (str): Name of the planet ('earth' or 'jupiter').
+    re (numpy.ndarray): Position vector of Earth.
+    rj (numpy.ndarray): Position vector of Jupiter.
+    
+    Returns:
+    numpy.ndarray: Derivative of the position vector.
+    """
     return v
 
 
 def dv_dt(t, r, v, planet, re, rj):
+    """
+    Calculates the derivative of the velocity vector.
+    
+    Parameters:
+    t (float): Time.
+    r (numpy.ndarray): Position vector.
+    v (numpy.ndarray): Velocity vector.
+    planet (str): Name of the planet ('earth' or 'jupiter').
+    re (numpy.ndarray): Position vector of Earth.
+    rj (numpy.ndarray): Position vector of Jupiter.
+    
+    Returns:
+    numpy.ndarray: Derivative of the velocity vector.
+    """
     F = force(r, planet, re, rj)
     if planet == 'earth':
         y = F / Me
@@ -62,6 +130,21 @@ def dv_dt(t, r, v, planet, re, rj):
 
 
 def RK4Solver(t, r, v, h, planet, re, rj):
+    """
+    Performs a single step of the RK4 method to solve the differential equations.
+    
+    Parameters:
+    t (float): Time.
+    r (numpy.ndarray): Position vector.
+    v (numpy.ndarray): Velocity vector.
+    h (float): Time step.
+    planet (str): Name of the planet ('earth' or 'jupiter').
+    re (numpy.ndarray): Position vector of Earth.
+    rj (numpy.ndarray): Position vector of Jupiter.
+    
+    Returns:
+    numpy.ndarray: Updated position and velocity vectors.
+    """
     k11 = dr_dt(t, r, v, planet, re, rj) 
     k21 = dv_dt(t, r, v, planet, re, rj)
     
